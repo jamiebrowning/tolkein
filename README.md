@@ -16,15 +16,44 @@ than what you get from the  "out the box" configuration
 - write the whole thing in Kotlin to get a sense of how different it is for SpringBoot
 - use Gradle as the build (because why not if you are going to be experimenting)
 
-## The Data Model
+## The Data Model - GraphDB
 
-Given that the primary construct of the model is a **Squad**, I obviously wanted to ensure that I could create ``Squad``
-nodes and ``Person`` nodes, and that I could create relationship type of ``MEMBER_OF`` between the 2.
+### The basics...
 
-<img src="Screenshot1.png" style="width:70%;display:block;margin-left:auto;margin-right:auto;border-radius:12px">
+My first aim was to capture the basic entities of the Spotify model
 
-Then I went to the next level and added a relationship "FORMED_OF" between a ``Tribe`` and the ``Squad`` entities that 
-form it. 
+- ``Person``
+- ``Squad``
+- ``Tribe``
+- ``Guild``
+- ``Chapter``
+
+At the root of the model is the Entity ``Person``. The entities I am interested in are ``Software Engineer`` resources. 
+
+A ``Person`` can be a ``MEMBER_OF`` a ``Squad``, which in turn is ``PART_OF`` a ``TRIBE``.
+
+In addition to members, a ``Squad`` will have a dedicated ``PRODUCT_OWNER``; a ``Tribe`` will have a dedicated 
+``TRIBE_LEAD``.
+
+<img src="screenshots/Labels.png" style="width:50%;display:block;margin-left:auto;margin-right:auto;border-radius:12px">
+
+In the Spotify model, the ``Squad`` is an autonomous organisational unit. However, members will each have their own 
+job specialism. A ``Chapter`` is responsible for technical leadership and engineering standards for a specific job and 
+will be ``LED_BY`` a senior technical resource.
+
+<img src="screenshots/Chapters.png" style="width:50%;display:block;margin-left:auto;margin-right:auto;border-radius:12px">
+
+A ``Guild`` is a community of interest for a particular technology or topic. Any ``Person`` can join a ``Guild`` and 
+there is no formal structure except for a ``COORDINATOR``.
+
+<img src="screenshots/Guilds.png" style="width:50%;display:block;margin-left:auto;margin-right:auto;border-radius:12px">
+
+### Next level...
+
+In order to answer questions about which skills an Engineer has I created a Skill entity for each skill and then added
+appropriate relationships
+
+<img src="screenshots/Skills.png" style="width:50%;display:block;margin-left:auto;margin-right:auto;border-radius:12px">
 
 # Installation
 
@@ -32,4 +61,4 @@ form it.
 
 # Usage
 
-What do you want me to tell you? It's a HATEOS REST API - ``curl`` away
+What do you want me to tell you? It's a HAL-based REST API - ``curl`` away!
