@@ -1,22 +1,32 @@
 # Description
 
-> **tolkein** - because all this talk of Guilds and Tribes makes me think of Hobbits.
+<img src="screenshots/tolkien.jpg" style="height:36pt;display:inline;margin-left:auto;margin-right:auto"> 
+<em>tolkien</em> ... because all this talk of Guilds and Tribes makes me think of Hobbits.
 
-I wanted a way (not a Spreadsheet) to very quickly create a Spotify model for resourcing. At work, I have to resource 
-Squads with different profile needs, so I often find myself asking questions such as:
+Like all organisations, we love a transformation, don't we? The latest flavour is the **Spotify Model**.
 
-- who has Java experience but has worked with X or Y person recently
-- who is the Payments team could be supported to work on ColdFusion code based on close working relationships with an 
-experienced developer
+I needed to quickly create a tool that enabled me to manage my engineering resources and to satisfy demands for 
+specific resource profiles from stakeholders. My hypothesis (proof of which is one of the goals of this project) was 
+that a Graph database would be a good fit. I wanted to move beyond simply assigning resources on a **java developer 
+goes here**-basis, to something more sophisticated like **which developer with java skill set has the closest 
+relationship proximity to other members of a given squad**.
 
-Goals where:
-- explore the benefits of a GraphDB to map relationships rather than entities
-- explore SpringDataRest a bit more - i.e. how can repository methods be customised to create something a bit better 
-than what you get from the  "out the box" configuration
-- write the whole thing in Kotlin to get a sense of how different it is for SpringBoot
-- use Gradle as the build (because why not if you are going to be experimenting)
+The goals of the project are:
+
+- explore the benefits of a GraphDB to map entities and relationships in a Spotify model
+- explore SpringDataRest as a means of transforming a Graph model into a REST interface 
+- write the whole thing in Kotlin to see how it works in the Spring ecosystem
+- use Gradle as the build tool (because why not if you are going to be experimenting)
 
 ## The Data Model - GraphDB
+
+Some example use cases (queries):
+
+- Which skills do a squad currently have?
+- Which people have given skill?
+- Which person with a given skill has a previous relationship with a member of a given squad?
+- Which member of a given squad has a previous relationship with a person with a given skill?
+
 
 ### The basics...
 
@@ -28,7 +38,7 @@ My first aim was to capture the basic entities of the Spotify model
 - ``Guild``
 - ``Chapter``
 
-At the root of the model is the Entity ``Person``. The entities I am interested in are ``Software Engineer`` resources. 
+At the root of the model is the Entity ``Person``. 
 
 A ``Person`` can be a ``MEMBER_OF`` a ``Squad``, which in turn is ``PART_OF`` a ``TRIBE``.
 
@@ -50,8 +60,11 @@ there is no formal structure except for a ``COORDINATOR``.
 
 ### Next level...
 
-In order to answer questions about which skills an Engineer has I created a Skill entity for each skill and then added
-appropriate relationships
+- Which skills do a squad currently have?
+- Which people have given skill?
+
+In order to answer questions about which skills a person has, I created a ``Skill`` entity for each skill and then added
+appropriate relationships.
 
 <img src="screenshots/Skills.png" style="width:50%;display:block;margin-left:auto;margin-right:auto;border-radius:12px">
 
