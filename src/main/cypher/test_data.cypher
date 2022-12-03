@@ -37,26 +37,26 @@ MERGE (daryl)-[:MEMBER_OF]->(api)
 MERGE (cheryl)<-[:PRODUCT_OWNER]-(api)
 
 // Create Tribe
-MERGE (jamie)-[:TRIBE_LEAD]-(platform)
-MERGE (api)-[:PART_OF]-(platform)
+MERGE (jamie)<-[:TRIBE_LEAD]-(platform)
+MERGE (api)-[:PART_OF]->(platform)
 
 // Create Chapter members
-MERGE (mike)-[:MEMBER_OF]->(dev)
-MERGE (ralph)-[:MEMBER_OF]->(dev)
-MERGE (jamie)<-[:MANAGER_OF]-(dev)
+MERGE (mike)-[:BELONGS_TO]->(dev)
+MERGE (ralph)-[:BELONGS_TO]->(dev)
+MERGE (jamie)<-[:LED_BY]-(dev)
 
-MERGE (daryl)-[:MEMBER_OF]->(kev)
-MERGE (damon)<-[:MANAGER_OF]-(kev)
+MERGE (daryl)-[:BELONGS_TO]->(kev)
+MERGE (damon)<-[:LED_BY]-(kev)
 
 // Create Guild members
-MERGE (jamie)<-[:COORDINATOR_OF]-(groovy)
-MERGE (damon)-[:MEMBER_OF]->(groovy)
-MERGE (mike)-[:MEMBER_OF]->(groovy)
-MERGE (ralph)-[:MEMBER_OF]->(groovy)
+MERGE (jamie)<-[:COORDINATOR]-(groovy)
+MERGE (damon)-[:CONTRIBUTOR_TO]->(groovy)
+MERGE (mike)-[:CONTRIBUTOR_TO]->(groovy)
+MERGE (ralph)-[:CONTRIBUTOR_TO]->(groovy)
 
 // Create some skills
-MERGE (jamie)-[:HAS_SKILL]-(java)
-MERGE (jamie)-[:HAS_SKILL]-(kotlin)
-MERGE (mike)-[:HAS_SKILL]-(java)
-MERGE (ralph)-[:HAS_SKILL]-(java)
-MERGE (daryl)-[:HAS_SKILL]-(kotlin)
+MERGE (jamie)-[:HAS_SKILL]->(java)
+MERGE (jamie)-[:HAS_SKILL]->(kotlin)
+MERGE (mike)-[:HAS_SKILL]->(java)
+MERGE (ralph)-[:HAS_SKILL]->(java)
+MERGE (daryl)-[:HAS_SKILL]->(kotlin)

@@ -1,7 +1,7 @@
 # Description
 
-<img src="screenshots/tolkien.jpg" style="height:36pt;display:inline;margin-left:auto;margin-right:auto"> 
-<em>tolkien</em> ... because all this talk of Guilds and Tribes makes me think of Hobbits.
+<img src="screenshots/tolkien.jpg" style="height:36pt;display:inline;margin-left:auto;margin-right:auto"> <em>tolkien
+</em> ... because all this talk of Guilds and Tribes makes me think of Hobbits.
 
 Like all organisations, we love a transformation, don't we? The latest flavour is the **Spotify Model**.
 
@@ -13,7 +13,7 @@ relationship proximity to other members of a given squad**.
 
 The goals of the project are:
 
-- explore the benefits of a GraphDB to map entities and relationships in a Spotify model
+- explore the benefits of a Graph database to map entities and relationships in a Spotify model
 - explore SpringDataRest as a means of transforming a Graph model into a REST interface 
 - write the whole thing in Kotlin to see how it works in the Spring ecosystem
 - use Gradle as the build tool (because why not if you are going to be experimenting)
@@ -48,13 +48,13 @@ In addition to members, a ``Squad`` will have a dedicated ``PRODUCT_OWNER``; a `
 <img src="screenshots/Labels.png" style="width:50%;display:block;margin-left:auto;margin-right:auto;border-radius:12px">
 
 In the Spotify model, the ``Squad`` is an autonomous organisational unit. However, members will each have their own 
-job specialism. A ``Chapter`` is responsible for technical leadership and engineering standards for a specific job and 
-will be ``LED_BY`` a senior technical resource.
+job ``Chapter`` that they ``BELONG_TO``. A ``Chapter`` is responsible for technical leadership and engineering standards 
+for a specific job and will be ``LED_BY`` a senior technical resource.
 
 <img src="screenshots/Chapters.png" style="width:50%;display:block;margin-left:auto;margin-right:auto;border-radius:12px">
 
-A ``Guild`` is a community of interest for a particular technology or topic. Any ``Person`` can join a ``Guild`` and 
-there is no formal structure except for a ``COORDINATOR``.
+A ``Guild`` is a community of interest for a particular technology or topic. Any ``Person`` can become a 
+``CONTRIBUTOR TO`` to a ``Guild`` and there is no formal structure except for a ``COORDINATOR``.
 
 <img src="screenshots/Guilds.png" style="width:50%;display:block;margin-left:auto;margin-right:auto;border-radius:12px">
 
