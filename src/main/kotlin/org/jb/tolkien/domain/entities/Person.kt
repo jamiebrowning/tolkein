@@ -1,11 +1,9 @@
 package org.jb.tolkien.domain.entities
 
-import org.springframework.data.neo4j.core.mapping.RelationshipDescription
 import org.springframework.data.neo4j.core.schema.DynamicLabels
 import org.springframework.data.neo4j.core.schema.GeneratedValue
 import org.springframework.data.neo4j.core.schema.Id
 import org.springframework.data.neo4j.core.schema.Relationship
-import org.springframework.data.neo4j.core.schema.Relationship.Direction
 
 data class Person (
     @Id @GeneratedValue

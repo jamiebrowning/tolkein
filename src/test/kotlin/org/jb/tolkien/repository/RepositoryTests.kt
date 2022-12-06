@@ -3,6 +3,7 @@ package org.jb.tolkien.repository
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.sql.init.dependency.DependsOnDatabaseInitialization
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
@@ -65,7 +66,7 @@ class RepositoryTests {
 
         Assertions.assertEquals(3, squad!!.members.size)
 
-        val productOwner = squad!!.productOwner
+        val productOwner = squad.productOwner
         Assertions.assertEquals(productOwner!!.name, SQUAD_PRODUCT_OWNER_NAME)
     }
 
@@ -75,7 +76,7 @@ class RepositoryTests {
 
         Assertions.assertEquals(1, tribe!!.squads.size)
 
-        val tribeLead = tribe!!.tribeLead
+        val tribeLead = tribe.tribeLead
         Assertions.assertEquals(tribeLead!!.name, TRIBE_LEAD_NAME)
     }
 
@@ -85,7 +86,7 @@ class RepositoryTests {
 
         Assertions.assertEquals(3, guild!!.contributors.size)
 
-        val coordinator = guild!!.coordinator
+        val coordinator = guild.coordinator
         Assertions.assertEquals(coordinator!!.name, GUILD_COORDINATOR)
     }
 
@@ -95,8 +96,8 @@ class RepositoryTests {
 
         Assertions.assertEquals(2, chapter!!.members.size)
 
-        val leader = chapter!!.leader
-        Assertions.assertEquals(leader!!.name, CHAPTER_LEAD_NAME)
+        val leader = chapter.leader
+        Assertions.assertEquals(leader.name, CHAPTER_LEAD_NAME)
     }
 
 }
